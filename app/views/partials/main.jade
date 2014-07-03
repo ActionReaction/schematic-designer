@@ -1,0 +1,79 @@
+div(ng-include='\'partials/navbar\'')
+
+ul.nav.nav-pills
+  li.dropdown
+    button#inputMenu.btn.btn-default.dropdown-toggle(data-toggle="dropdown" type="button")
+      i.glyphicon.glyphicon-import  In&nbsp;
+      span.caret
+    ul.dropdown-menu(role="menu" aria-labelledby="inputMenu")
+        li
+          a(ng-click="drawer.selectNewElement('button', 'input')")
+            i.glyphicon.glyphicon-download-alt
+            |  Button
+        li
+          a(ng-click="drawer.selectNewElement('text', 'input')")
+            i.glyphicon.glyphicon-comment
+            |  Text message
+        li
+          a(ng-click="drawer.selectNewElement('movement', 'input')")
+            i.glyphicon.glyphicon-eye-open
+            |  Movement detected
+
+
+  li.dropdown
+    button#outputMenu.btn.btn-default.dropdown-toggle(data-toggle="dropdown" type="button")
+      i.glyphicon.glyphicon-export  Out&nbsp;
+      span.caret
+    ul.dropdown-menu(role="menu" aria-labelledby="inputMenu")
+      li
+        a(ng-click="drawer.selectNewElement('alarm', 'output')")
+          i.glyphicon.glyphicon-bullhorn
+          |  Alarm
+      li
+        a(ng-click="drawer.selectNewElement('lcd', 'output')")
+          i.glyphicon.glyphicon-hd-video
+          |  LCD
+      li
+        a(ng-click="drawer.selectNewElement('tweet', 'output')")
+          i.glyphicon.glyphicon-comment
+          |  Tweet
+  li.dropdown
+    button#conditionMenu.btn.btn-default.dropdown-toggle(data-toggle="dropdown")
+      i.glyphicon.glyphicon-wrench  Conditions&nbsp;
+      span.caret
+    ul.dropdown-menu
+      li
+        a(ng-click="drawer.selectNewElement('and', 'condition')")
+          i.glyphicon.glyphicon-wrench
+          |  AND
+      li
+        a(ng-click="drawer.selectNewElement('or', 'condition')")
+          i.glyphicon.glyphicon-wrench
+          |  OR
+
+  li
+    button#saveButton.btn.btn-primary(ng-click="drawer.save()")
+      i.glyphicon.glyphicon-save Save
+
+  li.dropdown
+    button#presetButton.btn.btn-secondary(data-toggle="dropdown")
+      | Presets
+      span.caret
+    ul.dropdown-menu
+      li
+        a(ng-click="drawer.restore(presets.ButtonToAlarm)")
+          | ButtonToAlarm
+  li
+    button#saveImage.btn.btn-secondary(ng-click="drawer.exportImage()" disabled="true")
+      | Export
+
+#canvas-wrapper
+
+    
+.row.marketing
+  div(ng-repeat='thing in awesomeThings')
+    h4 {{thing.name}}
+    p {{thing.info}}
+
+.footer
+  p ♥ from team CodeCombat
